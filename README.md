@@ -8,9 +8,9 @@ Finally, this'll provide us with insights on your working style.
 
 ## Submission
 
-You have 2 days to complete the challenge. Though realistically, this shouldn't take you more than 4 hours.
+You have 7 days to complete the challenge.
 
-Please fork this and once you complete, send us back the forked link to rupert@99.co, benedict.bisana@99.co and try.wijono@99.co 
+Please fork this and once you complete, send us back the forked link to rupert@99.co and try.wijono@99.co 
 
 ## Questions
 
