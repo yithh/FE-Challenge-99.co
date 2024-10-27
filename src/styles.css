@@ -1,11 +1,360 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
-  border: 1px solid black;
+@font-face {
+  font-family: 'Avenir';
+  src: url('/public/avenir-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.mainPic {
+@font-face {
+  font-family: 'Avenir';
+  src: url('/public/avenir-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
 }
 
-.mainContent {
+@font-face {
+  font-family: 'Avenir';
+  src: url('/public/avenir-demibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('/public/avenir-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Main card container */
+.card {
+  font-family: 'Avenir', sans-serif;
+  width: 544px;
+  height: 470px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+/* Image container */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 272px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease; /* Smooth slide effect */
+  width: 100%;
+}
+
+.slideImage {
+  min-width: 100%; /* Each image takes full width of container */
+  height: 100%;
+  object-fit: cover; /* Ensures images cover the container without stretching */
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .arrow {
+  opacity: 1;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.label {
+  position: absolute;
+  top: 15px;
+  background-color: #ff4081;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 0px 5px 5px 0px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+/* Content container */
+.content {
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 120px;
+  overflow: hidden;
+  transition: height 0.5s ease-out, margin-top 0.5s ease-out;
+  margin-top: 0;
+}
+
+.content-expanded {
+  height: 1000px;
+  margin-top: -5px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.title-section {
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 23px;
+  font-weight: 600;
+  color: #1A2258;
+  margin: 0px;
+}
+
+.address {
+  font-size: 14px;
+  color: #787D9C;
+  margin: 0px;
+}
+
+.price-info {
+  text-align: right;
+}
+
+.psf {
+  font-size: 19px;
+  font-weight: 600;
+  color: #1A2258;
+}
+
+.subprice {
+  display: block;
+  font-size: 14px;
+  color: #787D9C;
+  margin-top: 2px;
+}
+
+/* Details section */
+.details {
+  font-size: 16px;
+  color: #1A2258;
+}
+
+.details p{
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+/* Description text */
+.description {
+  margin-top: 20px;
+  white-space: pre-wrap;
+  color: #1A2258;
+  font-size: 16px;
+}
+
+/* See description button */
+.see-description {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.see-description:hover {
+  text-decoration: underline;
+}
+
+/* Clickable phone numbers */
+.phoneNumber {
+  cursor: pointer;
+}
+
+/* Main card container for mobile */
+@media (max-width: 768px) {
+  .card {
+    width: 343px;
+    height: 290px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  /* Image container adjustments */
+  .image-container {
+    height: 160px; /* Adjust image height */
+    position: relative;
+  }
+
+  .slideImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Always show arrows on mobile */
+  .arrow {
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left-arrow {
+    left: 10px;
+  }
+
+  .right-arrow {
+    right: 10px;
+  }
+
+  /* Label */
+  .label {
+    top: 10px;
+    font-size: 10px;
+  }
+
+  /* Content */
+  .content {
+    padding: 10px;
+    height: 80px; /* Content height adjusted */
+    transition: height 0.3s ease; /* Smooth sliding effect */
+  }
+
+  .content-expanded {
+    height: 600px;
+    margin-top: -5px;
+  }
+
+  /* Header adjustments */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .title-section {
+    flex-grow: 1;
+  }
+
+  .title {
+    font-size: 12px; /* Title font size */
+    font-weight: 600;
+  }
+
+  .address {
+    font-size: 8px; /* Address font size */
+    color: #888;
+  }
+
+  .price-info {
+    text-align: right;
+  }
+
+  .psf {
+    font-size: 12px; /* psf font size */
+    font-weight: 600;
+    
+  }
+
+  .subprice {
+    font-size: 8px; /* Subprice font size */
+    color: #888;
+  }
+
+  /* Details section */
+  .details {
+    font-size: 10px; /* Details font size */
+  }
+
+  .details p {
+    margin-bottom: 5px;
+  }
+
+  /* See description button */
+  .see-description {
+    font-size: 10px; /* See description font size */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    transition: all 0.3s ease;
+  }
+
+  .see-description:hover {
+    text-decoration: underline;
+  }
+
+  /* Clickable phone numbers */
+  .phoneNumber {
+    font-size: 10px; /* Font size for phone numbers */
+    color: #007BFF;
+    cursor: pointer;
+  }
+
+  .description {
+    font-size: 10px;
+    margin-top: 10px;
+  }
 }
